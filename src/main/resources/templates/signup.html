@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+</head>
+<body>
+<form action="/insert" method="post">
+    <table class="table">
+        <tr>
+            <th colspan="3" id="header">회원 가입 정보 입력</th>
+        </tr>
+        <tr>
+            <th>아이디 :</th>
+            <td colspan="2"><input type="text" name="id" id="id" >&nbsp
+                <span id = idresult></span>
+            </td>
+        </tr>
+        <tr>
+            <th>패스워드 :</th>
+            <td colspan="2"><input type="password" name="pw" id="inputpw"></td>
+        </tr>
+        <tr>
+            <th>패스워드 확인 :</th>
+            <td><input type="password" name="checkpw" id="checkpw"></td>
+            <td id="result"></td>
+        </tr>
+        <tr>
+            <th>이름 :</th>
+            <td colspan="2"><input type="text" name="name" id="name"></td>
+        </tr>
+        <tr>
+            <th>전화번호 :</th>
+            <td colspan="2"><input type="text" name="phone" id="phone"></td>
+        </tr>
+        <tr>
+            <th>이메일 :</th>
+            <td colspan="2"><input type="text" name="email" id="email"></td>
+        </tr>
+        <tr>
+            <th>우편번호 :</th>
+            <td colspan="2"><input type="text" name="zipcode" id="postcode" placeholder="우편번호">&nbsp<input type="button"
+                                                                                                           onclick="postcode()" value="우편번호 찾기" id="btnsearch"></td>
+        </tr>
+        <tr>
+            <th>주소1 :</th>
+            <td colspan="2"><input type="text" id="address1" name="address1" placeholder="주소"></td>
+        </tr>
+        <tr>
+            <th>주소2 :</th>
+            <td colspan="2"><input type="text" id="address2" name="address2" placeholder="상세주소"></td>
+        </tr>
+
+        <tr class="buttons">
+            <td colspan="3"><input type="submit" value="회원가입">&nbsp<button type="button">다시 입력</button></td>
+        </tr>
+    </table>
+
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Mini.project.mapper.MembersMapper">
+
+
+    <insert id="insert">
+
+        insert into member values(#{id},#{pw},#{name},#{phone},#{email},#{zipcode},#{address1},#{address2},sysdate)
+
+    </insert>
+
+    <select id="loginCheck" resultType="boolean">
+
+        select case when count(*) = 1 then 1 else 0 end from member where id = #{id} and  pw = #{pw}
+
+    </select>
+
+
+    <delete id="deleteID">
+
+        delete from member where id = #{value}
+
+    </delete>
+
+    <select id="mypage" resultType="Mini.project.dto.MembersDTO">
+            select * from member where id = #{id}
+    </select>
+
+    <update id="update">
+        update member set pw=#{pw} , name=#{name}, phone=#{phone}, email=#{email}, zipcode=#{zipcode},address1=#{address1},address2=#{address2} where id = #{id}
+
+    </update>
+</mapper>
