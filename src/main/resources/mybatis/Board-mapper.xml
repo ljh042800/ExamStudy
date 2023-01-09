@@ -23,4 +23,8 @@
         delete from board where seq = #{value}
     </delete>
 
+    <update id="update">
+        update board set title = #{title}, contents = #{contents}, write_date = sysdate where seq = #{seq}
+    </update>
+
 </mapper>

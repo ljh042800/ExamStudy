@@ -25,5 +25,8 @@ public class BoardDAO {
     public int delete(int seq) {
         return boardMapper.delete(seq);
     }
+    public int update(int seq , String title, String contents) {
+        return boardMapper.update(seq, title ,contents);
+    }
 }
 

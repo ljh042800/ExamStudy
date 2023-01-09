@@ -26,5 +26,8 @@ public class BoardService {
     public int delete(int seq) {
         return dao.delete(seq);
     }
+    public int update(int seq , String title, String contents) {
+        return dao.update(seq, title ,contents);
+    }
 
 }

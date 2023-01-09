@@ -13,6 +13,12 @@
             $("#board-table").DataTable();
         });
     </script>
+    <style>
+        body{
+            width:1200px;
+            margin:auto;
+        }
+    </style>
 </head>
 <body>
 <input type="hidden" th:value="${sessionID}" name="writer">
@@ -20,15 +26,15 @@
 
 <table id="board-table" class="table table-bordered">
     <thead>
-    <tr><th>No</th><th>글제목</th><th>작성자</th><th>작성시간</th><th>조회수</th></tr>
+    <tr><th>글번호</th><th>글제목</th><th>작성자</th><th>작성시간</th><th>조회수</th></tr>
     </thead>
     <tbody>
             <tr th:each="list:${dto}">
-                <td th:text="${list.getSeq()}">글 번호</td>
+                <td th:text="${list.getSeq()}"></td>
                 <td><a th:href="@{/Board/detailBoard?(seq=${list.getSeq()})}" th:text="${list.getTitle()}"></a> </td>
-                <td th:text="${list.getWriter()}">작성자</td>
-                <td th:text="${list.getWrite_date()}">작성자</td>
-                <td th:text="${list.getView_count()}">조회수</td>
+                <td th:text="${list.getWriter()}"></td>
+                <td th:text="${list.getWrite_date()}"></td>
+                <td th:text="${list.getView_count()}"></td>
 
             </tr>
     </tbody>

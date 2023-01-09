@@ -25,36 +25,38 @@
 <body>
 
 <form id="form">
-    <div th:each="dto:${list}">
-        <div class="container">
-            <div th:each="dto:${list}">
-                <input type="hidden" th:value="${list.getSeq()}" name="seq" id="seq">
-                <div class="seq row">
-                    <div class="seq1 col-sm-1">글번호:<th th:text="${list.getSeq()}"></th></div>
-                    <div class="col-sm-5">작성자:<th th:text="${list.getWriter()}"></th></div>
-                    <div class="col-sm-4">작성시간:<th th:text="${list.getWrite_date()}"></th></div>
-                </div>
-                <br>
+        <div th:each="dto:${list}">
+            <div class="container">
+                <div th:each="dto:${list}">
+                    <input type="hidden" th:value="${list.getSeq()}" name="seq" id="seq">
+                    <div class="seq row">
+                        <div class="seq1 col-sm-1">글번호:<th th:text="${list.getSeq()}"></th></div>
+                        <div class="col-sm-5">작성자:<th th:text="${list.getWriter()}"></th></div>
+                        <div class="col-sm-4">작성시간:<th th:text="${list.getWrite_date()}"></th></div>
+                    </div>
+                    <br>
 
-                <div class="title">
-                    <div class="col-sm-2"><input class="form-control" type="text" th:value="${list.getTitle()}"></div>
-                </div>
-                <br>
-                <div class="contents">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" th:text="${list.getContents()}" ></textarea>
+                    <div class="title">
+                        <div class="col-sm-2"><input class="form-control" type="text" th:value="${list.getTitle()}" id="title" name="title" ></div>
+                    </div>
+                    <br>
+                    <div class="contents">
+                        <textarea class="form-control" id="contents" rows="10" th:text="${list.getContents()}"  name="contents" ></textarea>
+                    </div>
                 </div>
             </div>
+
         </div>
-
-    </div>
-    <br>
-    <br>
+        <br>
+        <br>
 
 
-    <div class="writer row">
-        <div class="col-sm-5" ></div>
-        <button type="button" id="delete" class="btn btn-primary col-sm-1">삭제하기</button>
-    </div>
+        <div class="writer row">
+            <div class="col-sm-5" ></div>
+            <button type="button" id="delete" class="btn btn-primary col-sm-1">삭제하기</button>
+            <button type="button" id="update">수정하기</button>
+            <button type="button" id="updateOK">수정완료</button>
+        </div>
 </form>
 
 </body>
@@ -64,6 +66,24 @@
         let seq = $("#seq").val();
         $("#form").attr("action","/Board/delete?seq="+seq)
         $("#form").submit();
+    })
+    $("#update").on("click",function(){
+        $("#form").attr("action","/Board/update");
+        $("#form").submit();
+        // $("#update").hide();
+        // $("#updateOK").show();
+        // $("#title,#contents").removeAttr("readonly"); // readonly가 지워짐.
+        // $("#title").focus(); //타이틀에 포커스가 맞춰지고
+        //
+        // $("#updateOK").on("click",function(){
+        //     $("#form").attr("action","/Board/update");
+        //     $("#form").submit();
+       // })
+
+
+
+
+
     })
 
 </script>

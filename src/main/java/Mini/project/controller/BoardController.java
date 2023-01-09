@@ -69,4 +69,13 @@ public class BoardController {
         return "redirect:BoardView";
     }
 
+    @RequestMapping("update")
+    public String update(int seq , String title ,String contents) {
+        service.update(seq, title ,contents);
+        System.out.println(seq);
+        System.out.println(title);
+        System.out.println(contents);
+        return "redirect:BoardView";
+    }
+
 }

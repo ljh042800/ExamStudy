@@ -13,5 +13,6 @@ public interface BoardMapper {
 
     BoardDTO detailBoard(int seq);
     int delete(int seq);
+    int update(int seq, String title, String contents);
 
 }
