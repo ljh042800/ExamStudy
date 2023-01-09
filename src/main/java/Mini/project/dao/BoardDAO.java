@@ -22,5 +22,8 @@ public class BoardDAO {
     public BoardDTO detailBoard(int seq) {
         return boardMapper.detailBoard(seq);
     }
+    public int delete(int seq) {
+        return boardMapper.delete(seq);
+    }
 }
 

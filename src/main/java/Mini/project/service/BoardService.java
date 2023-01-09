@@ -23,5 +23,8 @@ public class BoardService {
     public BoardDTO detailBoard(int seq) {
         return dao.detailBoard(seq);
     }
+    public int delete(int seq) {
+        return dao.delete(seq);
+    }
 
 }

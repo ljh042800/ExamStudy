@@ -19,4 +19,8 @@
 
     </select>
 
+    <delete id="delete">
+        delete from board where seq = #{value}
+    </delete>
+
 </mapper>

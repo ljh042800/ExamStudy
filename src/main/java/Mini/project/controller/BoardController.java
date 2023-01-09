@@ -53,7 +53,7 @@ public class BoardController {
         String writer = (String)session.getAttribute("sessionID");
         model.addAttribute("sessionID",writer);
         service.insert(dto);
-        return "BoardView";
+        return "redirect:BoardView";
     }
 
     @RequestMapping("detailBoard")
@@ -62,6 +62,11 @@ public class BoardController {
         model.addAttribute("list",dto);
         return "detailView";
 
+    }
+    @RequestMapping("delete")
+    public String delete(int seq) {
+        service.delete(seq);
+        return "redirect:BoardView";
     }
 
 }

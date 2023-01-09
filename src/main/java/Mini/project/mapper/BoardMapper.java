@@ -12,5 +12,6 @@ public interface BoardMapper {
     List<BoardDTO> selectAll();
 
     BoardDTO detailBoard(int seq);
+    int delete(int seq);
 
 }

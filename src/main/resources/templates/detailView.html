@@ -10,14 +10,28 @@
 </head>
 <body>
 
-<div th:each="dto:${list}">
-    <div th:text="${list.getSeq()}"></div>
-    <div th:text="${list.getTitle()}"></div>
-    <div th:text="${list.getContents()}"></div>
-    <div th:text="${list.getWriter()}"></div>
-    <div th:text="${list.getWrite_date()}"></div>
+<form id="form">
+    <div th:each="dto:${list}">
+        <input type="hidden" th:value="${list.getSeq()}" name="seq" id="seq">
+        <div th:text="${list.getSeq()}" ></div>
+        <div th:text="${list.getTitle()}"></div>
+        <div th:text="${list.getContents()}"></div>
+        <div th:text="${list.getWriter()}"></div>
+        <div th:text="${list.getWrite_date()}"></div>
 
-</div>
+
+    </div>
+
+    <button type="button" class="deleteBtn">삭제하기</button>
+</form>
 
 </body>
 </html>
+<script>
+    $(".deleteBtn").on("click",function(){
+        let seq = $("#seq").val();
+        $("#form").attr("action","/Board/delete?seq="+seq)
+        $("#form").submit();
+    })
+
+</script>
