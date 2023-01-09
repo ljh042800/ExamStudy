@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 @RequestMapping("/Board/")
@@ -27,7 +28,10 @@ public class BoardController {
     @RequestMapping("BoardView")
     public String BoardView(Model model) {
 
+        List<BoardDTO> list = service.selectAll();
         String writer = (String)session.getAttribute("sessionID");
+
+        model.addAttribute("dto",list);
         model.addAttribute("sessionID",writer);
 
         return "BoardView";

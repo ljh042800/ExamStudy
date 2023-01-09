@@ -5,6 +5,8 @@ import Mini.project.mapper.BoardMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class BoardDAO {
     @Autowired
@@ -12,6 +14,10 @@ public class BoardDAO {
 
     public int insert(BoardDTO dto) {
         return boardMapper.insert(dto);
+    }
+
+    public List<BoardDTO> selectAll() {
+        return boardMapper.selectAll();
     }
 }
 

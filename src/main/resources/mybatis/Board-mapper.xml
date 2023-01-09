@@ -8,4 +8,10 @@
 
     </insert>
 
+    <select id="selectAll" resultType="Mini.project.dto.BoardDTO">
+        select * from board order by seq desc
+
+
+    </select>
+
 </mapper>

@@ -12,6 +12,15 @@
 <input type="hidden" th:value="${sessionID}" name="writer">
 <button class="BoardWrite">글쓰기</button>
 
+<div th:each="list:${dto}">
+    <div th:text="${list.getSeq()}">글 번호</div>
+    <div th:text="${list.getTitle()}">글 제목</div>
+    <div th:text="${list.getWriter()}">작성자</div>
+    <div th:text="${list.getWrite_date()}">작성자</div>
+    <div th:text="${list.getView_count()}">조회수</div>
+
+</div>
+
 
 </body>
 </html>

@@ -5,6 +5,8 @@ import Mini.project.dto.BoardDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BoardService {
 
@@ -13,6 +15,9 @@ public class BoardService {
 
     public int insert(BoardDTO dto) {
         return dao.insert(dto);
+    }
+    public List<BoardDTO> selectAll() {
+        return dao.selectAll();
     }
 
 }
