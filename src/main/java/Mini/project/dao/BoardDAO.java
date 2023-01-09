@@ -19,5 +19,8 @@ public class BoardDAO {
     public List<BoardDTO> selectAll() {
         return boardMapper.selectAll();
     }
+    public BoardDTO detailBoard(int seq) {
+        return boardMapper.detailBoard(seq);
+    }
 }
 

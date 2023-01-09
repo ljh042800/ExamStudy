@@ -14,7 +14,7 @@
 
 <div th:each="list:${dto}">
     <div th:text="${list.getSeq()}">글 번호</div>
-    <div th:text="${list.getTitle()}">글 제목</div>
+    <div><a th:href="@{/Board/detailBoard?(seq=${list.getSeq()})}"><th th:text="${list.getTitle()}"></th></a> </div>
     <div th:text="${list.getWriter()}">작성자</div>
     <div th:text="${list.getWrite_date()}">작성자</div>
     <div th:text="${list.getView_count()}">조회수</div>

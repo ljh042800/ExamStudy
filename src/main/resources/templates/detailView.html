@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+<div th:each="dto:${list}">
+    <div th:text="${list.getSeq()}"></div>
+    <div th:text="${list.getTitle()}"></div>
+    <div th:text="${list.getContents()}"></div>
+    <div th:text="${list.getWriter()}"></div>
+    <div th:text="${list.getWrite_date()}"></div>
+
+</div>
+
+</body>
+</html>

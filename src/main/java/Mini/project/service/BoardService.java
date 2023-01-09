@@ -20,4 +20,8 @@ public class BoardService {
         return dao.selectAll();
     }
 
+    public BoardDTO detailBoard(int seq) {
+        return dao.detailBoard(seq);
+    }
+
 }

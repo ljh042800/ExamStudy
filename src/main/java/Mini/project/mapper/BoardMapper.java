@@ -11,4 +11,6 @@ public interface BoardMapper {
     int insert(BoardDTO dto);
     List<BoardDTO> selectAll();
 
+    BoardDTO detailBoard(int seq);
+
 }

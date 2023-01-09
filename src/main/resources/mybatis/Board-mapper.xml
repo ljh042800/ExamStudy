@@ -14,4 +14,9 @@
 
     </select>
 
+    <select id="detailBoard" resultType="Mini.project.dto.BoardDTO">
+        select * from board where seq = #{value}
+
+    </select>
+
 </mapper>

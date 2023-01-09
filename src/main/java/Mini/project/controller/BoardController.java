@@ -56,4 +56,12 @@ public class BoardController {
         return "BoardView";
     }
 
+    @RequestMapping("detailBoard")
+    public String detailBoard(int seq,Model model) {
+        BoardDTO dto = service.detailBoard(seq);
+        model.addAttribute("list",dto);
+        return "detailView";
+
+    }
+
 }
