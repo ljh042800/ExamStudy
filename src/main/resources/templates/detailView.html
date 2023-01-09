@@ -8,27 +8,59 @@
           integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+<style>
+    *{margin:0; border-sizing:border-box; padding:0;}
+    .seq{
+        text-align: center;
+        margin-top: 100px;
+        margin-left: 15px;
+    }
+    .title{
+        margin-left: 20px;
+    }
+    .contents{
+        margin-left: 20px;
+    }
+</style>
 <body>
 
 <form id="form">
     <div th:each="dto:${list}">
-        <input type="hidden" th:value="${list.getSeq()}" name="seq" id="seq">
-        <div th:text="${list.getSeq()}" ></div>
-        <div th:text="${list.getTitle()}"></div>
-        <div th:text="${list.getContents()}"></div>
-        <div th:text="${list.getWriter()}"></div>
-        <div th:text="${list.getWrite_date()}"></div>
+        <div class="container">
+            <div th:each="dto:${list}">
+                <input type="hidden" th:value="${list.getSeq()}" name="seq" id="seq">
+                <div class="seq row">
+                    <div class="seq1 col-sm-1">글번호:<th th:text="${list.getSeq()}"></th></div>
+                    <div class="col-sm-5">작성자:<th th:text="${list.getWriter()}"></th></div>
+                    <div class="col-sm-4">작성시간:<th th:text="${list.getWrite_date()}"></th></div>
+                </div>
+                <br>
 
+                <div class="title">
+                    <div class="col-sm-2"><input class="form-control" type="text" th:value="${list.getTitle()}"></div>
+                </div>
+                <br>
+                <div class="contents">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" th:text="${list.getContents()}" ></textarea>
+                </div>
+            </div>
+        </div>
 
     </div>
+    <br>
+    <br>
 
-    <button type="button" class="deleteBtn">삭제하기</button>
+
+    <div class="writer row">
+        <div class="col-sm-5" ></div>
+        <button type="button" id="delete" class="btn btn-primary col-sm-1">삭제하기</button>
+    </div>
 </form>
 
 </body>
 </html>
 <script>
-    $(".deleteBtn").on("click",function(){
+    $("#delete").on("click",function(){
         let seq = $("#seq").val();
         $("#form").attr("action","/Board/delete?seq="+seq)
         $("#form").submit();

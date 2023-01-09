@@ -7,21 +7,36 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.datatables.net/t/bs-3.3.6/jqc-1.12.0,dt-1.10.11/datatables.min.js"></script>
+    <script>
+        jQuery(function($){
+            $("#board-table").DataTable();
+        });
+    </script>
 </head>
 <body>
 <input type="hidden" th:value="${sessionID}" name="writer">
+
+
+<table id="board-table" class="table table-bordered">
+    <thead>
+    <tr><th>No</th><th>글제목</th><th>작성자</th><th>작성시간</th><th>조회수</th></tr>
+    </thead>
+    <tbody>
+            <tr th:each="list:${dto}">
+                <td th:text="${list.getSeq()}">글 번호</td>
+                <td><a th:href="@{/Board/detailBoard?(seq=${list.getSeq()})}" th:text="${list.getTitle()}"></a> </td>
+                <td th:text="${list.getWriter()}">작성자</td>
+                <td th:text="${list.getWrite_date()}">작성자</td>
+                <td th:text="${list.getView_count()}">조회수</td>
+
+            </tr>
+    </tbody>
+
+
+</table>
+
 <button class="BoardWrite">글쓰기</button>
-
-<div th:each="list:${dto}">
-    <div th:text="${list.getSeq()}">글 번호</div>
-    <div><a th:href="@{/Board/detailBoard?(seq=${list.getSeq()})}"><th th:text="${list.getTitle()}"></th></a> </div>
-    <div th:text="${list.getWriter()}">작성자</div>
-    <div th:text="${list.getWrite_date()}">작성자</div>
-    <div th:text="${list.getView_count()}">조회수</div>
-
-</div>
-
-
 </body>
 </html>
 
