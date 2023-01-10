@@ -13,4 +13,5 @@ public interface replyMapper {
     List<replyDTO> selectAll(int parent_seq);
 
     int delete(int reply_seq);
+    int update(int reply_seq, String reply_contents);
 }

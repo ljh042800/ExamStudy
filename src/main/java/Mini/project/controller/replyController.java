@@ -34,4 +34,13 @@ public class replyController {
         return "redirect:/Board/detailBoard?seq="+dto.getReply_parent_seq();
     }
 
+    @RequestMapping("update")
+    public String update(int reply_seq , String reply_contents) {
+        System.out.println(reply_seq);
+        System.out.println(reply_contents);
+        service.update(reply_seq,reply_contents);
+
+        return "BoardView";
+    }
+
 }

@@ -22,5 +22,8 @@ public class replyService {
     public int delete(int reply_seq) {
         return dao.delete(reply_seq);
     }
+    public int update(int reply_seq, String reply_contents) {
+        return dao.update(reply_seq , reply_contents);
+    }
 
 }

@@ -20,4 +20,7 @@
         delete from reply where reply_seq = #{value}
 
     </delete>
+    <update id="update">
+        update reply set reply_contents = #{reply_contents} , reply_write_date = sysdate where reply_seq = #{reply_seq}
+    </update>
 </mapper>

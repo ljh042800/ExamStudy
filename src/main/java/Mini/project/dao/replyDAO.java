@@ -23,4 +23,7 @@ public class replyDAO {
         return replyMapper.delete(reply_seq);
 
     }
+    public int update(int reply_seq , String reply_contents) {
+        return replyMapper.update(reply_seq, reply_contents);
+    }
 }
