@@ -52,8 +52,12 @@
         <br>
     <div class="comments">
         <hr>
-        <textarea id="comments" placeholder="댓글을입력하세요."></textarea>
+        <textarea id="comments" placeholder="댓글을입력하세요." name="reply_contents"></textarea>
         <button type="button" id="commentsBtn">댓글작성</button>
+        <div th:each="dto1:${list1}">
+            <div th:text="${dto1.getReply_writer()}"></div>
+            <div th:text="${dto1.getReply_contents()}"></div>
+        </div>
     </div>
 
 

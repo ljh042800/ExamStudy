@@ -1,8 +1,9 @@
 package Mini.project.controller;
 
 import Mini.project.dto.BoardDTO;
-import Mini.project.dto.MembersDTO;
+import Mini.project.dto.replyDTO;
 import Mini.project.service.BoardService;
+import Mini.project.service.replyService;
 import Mini.project.service.MembersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,8 @@ public class BoardController {
     private HttpSession session;
     @Autowired
     private MembersService membersService;
+    @Autowired
+    private replyService replyService;
 
 
     //게시판 view로 가는곳
@@ -59,7 +62,10 @@ public class BoardController {
     @RequestMapping("detailBoard")
     public String detailBoard(int seq,Model model) {
         BoardDTO dto = service.detailBoard(seq);
+        List<replyDTO> dto1 = replyService.selectAll(seq);
         model.addAttribute("list",dto);
+        model.addAttribute("list1",dto1);
+
         return "detailView";
 
     }

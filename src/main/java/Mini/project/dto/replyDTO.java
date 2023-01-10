@@ -12,13 +12,13 @@ import java.sql.Timestamp;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CommentsDTO {
+public class replyDTO {
 
-    private int seq;
-    private String writer;
-    private String contents;
-    private Timestamp write_date;
-    private int parent_seq;
+    private int reply_seq;
+    private String reply_writer;
+    private String reply_contents;
+    private Timestamp reply_write_date;
+    private int reply_parent_seq;
 
 
 }
