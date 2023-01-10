@@ -5,7 +5,9 @@
 <mapper namespace="Mini.project.mapper.BoardMapper">
     <insert id="insert">
         insert into board values(Board_seq.nextval,#{writer},#{title},#{contents},sysdate,#{view_count,jdbcType=VARCHAR})
-
+        <selectKey order="AFTER" keyProperty="seq" resultType="int">
+            select board_seq.currval from dual
+        </selectKey>
     </insert>
 
     <select id="selectAll" resultType="Mini.project.dto.BoardDTO">

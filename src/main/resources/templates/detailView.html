@@ -29,6 +29,7 @@
             <div class="container">
                 <div th:each="dto:${list}">
                     <input type="hidden" th:value="${list.getSeq()}" name="seq" id="seq">
+                    <input type="hideen" th:value="${list.getWriter()}" name="writer">
                     <div class="seq row">
                         <div class="seq1 col-sm-1">글번호:<th th:text="${list.getSeq()}"></th></div>
                         <div class="col-sm-5">작성자:<th th:text="${list.getWriter()}"></th></div>
@@ -49,6 +50,11 @@
         </div>
         <br>
         <br>
+    <div class="comments">
+        <hr>
+        <textarea id="comments" placeholder="댓글을입력하세요."></textarea>
+        <button type="button" id="commentsBtn">댓글작성</button>
+    </div>
 
 
         <div class="writer row">
@@ -84,6 +90,11 @@
 
 
 
+    })
+
+    $("#commentsBtn").on("click",function(){
+        $("#form").attr("action","/Comments/insert")
+        $("#form").submit();
     })
 
 </script>
