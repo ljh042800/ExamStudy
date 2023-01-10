@@ -19,10 +19,18 @@ public class replyController {
 
     @RequestMapping("insert")
     public String insert(replyDTO dto, Model model , int seq) {
+        model.addAttribute(session.getAttribute("sessionID").toString());
         dto.setReply_writer(session.getAttribute("sessionID").toString());
         dto.setReply_parent_seq(seq);
         service.insert(dto);
 
+        return "redirect:/Board/detailBoard?seq="+dto.getReply_parent_seq();
+    }
+    @RequestMapping("delete")
+    public String delete(int reply_seq,int seq) {
+        replyDTO dto = new replyDTO();
+        dto.setReply_parent_seq(seq);
+        service.delete(reply_seq);
         return "redirect:/Board/detailBoard?seq="+dto.getReply_parent_seq();
     }
 

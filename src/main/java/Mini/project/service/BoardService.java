@@ -30,4 +30,5 @@ public class BoardService {
         return dao.update(seq, title ,contents);
     }
 
+
 }

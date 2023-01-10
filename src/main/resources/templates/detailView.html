@@ -55,8 +55,10 @@
         <textarea id="comments" placeholder="댓글을입력하세요." name="reply_contents"></textarea>
         <button type="button" id="commentsBtn">댓글작성</button>
         <div th:each="dto1:${list1}">
+            <input type="hidden" th:value="${dto1.getReply_seq()}" name="reply_seq">
             <div th:text="${dto1.getReply_writer()}"></div>
             <div th:text="${dto1.getReply_contents()}"></div>
+            <button type="button" class="deleteBtn">삭제하기</button>
         </div>
     </div>
 
@@ -100,5 +102,10 @@
         $("#form").attr("action","/Comments/insert")
         $("#form").submit();
     })
+    $(".deleteBtn").on("click",function(){
+        $("#form").attr("action","/Comments/delete")
+        $("#form").submit();
+    })
+
 
 </script>

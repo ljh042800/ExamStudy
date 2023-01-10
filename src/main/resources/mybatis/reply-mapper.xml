@@ -15,4 +15,9 @@
     <select id="selectAll" resultType="Mini.project.dto.replyDTO">
         select * from reply where reply_parent_seq=#{value}
     </select>
+
+    <delete id="delete">
+        delete from reply where reply_seq = #{value}
+
+    </delete>
 </mapper>

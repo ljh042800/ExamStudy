@@ -18,4 +18,9 @@ public class replyDAO {
     public List<replyDTO> selectAll(int parent_seq){
         return replyMapper.selectAll(parent_seq);
     }
+
+    public int delete(int reply_seq) {
+        return replyMapper.delete(reply_seq);
+
+    }
 }

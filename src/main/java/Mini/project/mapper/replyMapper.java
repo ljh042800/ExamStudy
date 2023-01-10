@@ -11,4 +11,6 @@ public interface replyMapper {
     int insert(replyDTO dto);
 
     List<replyDTO> selectAll(int parent_seq);
+
+    int delete(int reply_seq);
 }
