@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+<script>
+
+
+</script>
+
+<form action ="/update" method = "post" th:each="dto:${list}">
+
+  <table border="1" align=center >
+    <tr>
+      <td colspan="2"align="center">내정보</td>
+
+    </tr>
+    <tr>
+      <td align = "right"> 아이디 : </td>
+      <td><input type="text" name="id" id="id" th:value="${list.getId()}" >
+    </tr>
+    <tr>
+      <td  align="right">패스워드 : </td>
+      <td><input type="text" name = "pw" id="pw" th:value="${list.getPw()}" ></td>
+    </tr>
+    <tr>
+      <td align="right">패스워드 확인: </td>
+      <td><input type="text" name = "pw1" id="pw" th:value="${list.getPw()}" ><span
+              id = "check"></span></td>
+    </tr>
+    <tr>
+      <td  align="right">이름 : </td>
+      <td><input type="text" name = "name" th:value="${list.getName()}" ></td>
+    </tr>
+    <tr>
+      <td  align="right">전화번호 : </td>
+      <td><input type="text" name = "phone" id="phone"th:value="${list.getPhone()}" ></td>
+    </tr>
+    <tr>
+      <td  align="right">이메일 : </td>
+      <td><input type= "text" name = "email" id="email" th:value="${list.getEmail()}" ></td>
+    </tr>
+    <tr>
+      <td  align="right">우편번호 : </td>
+      <td><input type= "text" name = "zipcode" id="zipcode" th:value="${list.getZipcode()}" ></td>
+    </tr>
+    <tr>
+      <td  align="right">주소1 : </td>
+      <td><input type= "text" name = "address1" id="address1" th:value="${list.getAddress1()}"></td>
+    </tr>
+    <tr>
+      <td  align="right">주소2 : </td>
+      <td><input type= "text" name = "address2" id="address2" th:value="${list.getAddress2()}" ></td>
+    </tr>
+    <tr>
+      <td align=right >회원가입일<
+    </tr>
+    <tr>
+      <td colspan="2" align=center id=btns>
+
+        <button type="submit " value="정보수정" id ="modify">수정하기
+
+
+    </tr>
+
+
+  </table>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<style>
+    *{
+        box-sizing: border-box 1px;
+        margin: auto;
+    }
+    .container {
+        margin-top: 100px;
+        width: 500px;
+        height: 300px;
+    }
+    #login{
+        background-color: beige;
+        height: 40px;
+        text-align: center;
+        width: 100%;
+
+    }
+
+    #idbox{
+        width: 300px
+
+    }
+    #pwbox{
+        width: 300px
+    }
+    #idpw{
+
+        background-color: #EEEFF1;
+        color:  #9B9B9B;
+
+    }
+    #pw{
+        width: 100%;
+    }
+    button{
+        width: 100%;
+    }
+
+    td>button {
+        width:100%;
+        height:100%;
+    }
+    th{
+        padding:10px;
+    }
+
+
+</style>
+<body>
+
+
+
+<table  border=1 align=center    th:if="${id} !=null" th:value="${id}" >
+    <tr>
+        <th colspan=4  th:text="${id}" id="writer" name="writer"> 님 안녕하세요.
+        </th>
+    <tr>
+        <td><button id = "toBoard">자유게시판</button>
+        <td><button id = "mypage">마이페이지</button>
+        <td><button id = "logout">로그아웃</button>
+        <td><button id = "deleteID">회원탈퇴</button>
+        <td>
+
+    </tr>
+
+
+</table>
+<script>
+    $("#logout").on("click",function(){
+        location.href = "/delete"
+    })
+    $("#mypage").on("click",function(){
+        location.href = "/mypage"
+    })
+    $("#toBoard").on("click",function(){
+        location.href = "/Board/BoardView"
+    })
+    $("#deleteID").on("click",function(){
+        location.href = "/deleteID"
+    })
+</script>
+
+
+
+
+<form action="/loginCheck" method="post" >
+    <div class="container"  th:unless="${id} !=null">
+        <div class="row mb-3 gy-2">
+            <div class="col-sm-12" id="login">로그인박스</div>
+        </div>
+        <div class="row mb-3 gy-2" id="idpw" >
+            <div class="col-sm-4">아이디:</div>
+            <div class="col-sm-8"><input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="idbox" name = id> </div>
+            <div class="col-sm-4">패스워드:</div>
+            <div class="col-sm-8 mb-3" ><input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm " id="pwbox" name=pw> </div>
+            <div class="col-sm-7 ">
+                <input type="submit" id="login" value="Login">
+            </div>
+            <div class="col-sm-7">
+                <a href = /signup><button class="btn btn-outline-secondary" type="button" id="signup" value="Sign up" >회원가입</a></button>
+            </div>
+            <div class="form-check m-3 ">
+                <input class="form-check-input"  type="checkbox" value="" id="flexCheckDefault ">
+                <label class="form-check-label" for="flexCheckDefault ">
+                    ID기억하기
+                </label>
+            </div>
+        </div>
+
+    </div>
+</form>
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+<script>
+$("#signup").on("click",function(){
+  location.href="/signup";
+})
+
+</script>
